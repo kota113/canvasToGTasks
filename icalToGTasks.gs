@@ -1,8 +1,8 @@
 function main() {
   // Replace the following URL with the canvas iCal file URL you want to parse
-  var icalUrl = 'https://sol.sfc.keio.ac.jp/feeds/calendars/user_hk38x208dOiGyzuww468dkZ4bb53t04UugzYhvKS.ics';
+  var icalUrl = 'https://example.com/calendar.ics';
   // Replace the following with the ID of an existing googletask list
-  var taskListId = 'bmdKbjdqOWM4SmNjRUZURg';
+  var taskListId = 'your-tasklist-id';
 
   // Fetch the iCal file
   var response = UrlFetchApp.fetch(icalUrl);
@@ -92,8 +92,6 @@ function addEventsToTasks(events, taskListId) {
       tasks.title = eventTitle;
       tasks.notes = event.description;
       tasks.due = dueDate;
-      Logger.log("DUPLICATION FOUND=========================");
-      Logger.log(eventTitle);
       Tasks.Tasks.insert(tasks, taskListId);
     }
   }
